@@ -1,5 +1,7 @@
-`mysql -u root -p` - rozpoczęcie pracy z mysql (Pln77) 
+`mysql -u root -p` - rozpoczęcie pracy z mysql (Pln77)
 `show databases;` - jak nazwa wskazuje  
+`show tables;` - jak nazwa wskazuje  
+`select * from <nazwa_tabeli>;` - jak nazwa wskazuje  
 `exit`
 Aby zmienić hasło roota:
 Po zalogowaniu do mysql wykonaj:
