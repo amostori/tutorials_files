@@ -16,3 +16,16 @@ Utworzenie nowej db dla nowego użytkownika:
 
 ---
 `SQLALCHEMY_DATABASE_URI=mysql+pymysql://<nazwa_uzytkownika>:<hasło_uzytkownika>@localhost/<nazwa_db>?charset=utf8mb4`
+
+W celu zbudowania bazy danych zainstaluj flask-migrate:
+`pip install flask-migrate`
+Następnie w pliku inicjacyjnym należy skonfigurować flask-migrate:
+`migrate = Migrate(app, db)`
+a w terminalu wykonać:
+`flask db init` - inicjuje flask-migrate
+`flask db migrate -m "<notatka>"` - tworzy pliki do migracji
+`flask db upgrade` - dokonuje utworzenie bazy danych na podstawie plików migracji.
+
+`flask run`
+Kiedy uruchamiamy aplikację tą komendą odczytywany jest plik .flaskenv i to tam ma być ustawiona zmienna FLASK_APP.
+
