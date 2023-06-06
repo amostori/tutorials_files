@@ -13,3 +13,5 @@
 `docker images` - listowanie image'ów.
 `docker rmi <nazwa_image'u>` - usuwanie image'u (tylko jeśli nie ma konteneru).
 `docker image prune` - usunięcie wszystkich image'ów nieposiadających kontenerów
+`docker run -p 3000:80 -d --rm <nr_image>` - uruchomienie kontenera w trybie detached (-d) oraz z automatycznym jego
+usunięciu po zakończeniu pracy (--rm).

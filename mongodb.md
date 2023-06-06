@@ -51,7 +51,11 @@ Funkcja `update()` nie wymaga $set, ale podmienia cały obiekt, podobnie jak fun
 findAll()  
 `db.<nazwa_kolekcji>.findAll({nazwa_pola_szukanego:"wartość_pola"})` - wyszukuje dokument z danymi podanymi w {}  
 `db.<nazwa_kolekcji>.findAll({distance: {$gt:100}}).pretty()` - wyszukuje dokument posiadający pole "distance" o
-wartości większej niż 100.  
+wartości większej niż 100.
+
+`db.<nazwa_kolekcji>.find()` - funkcja ta zwraca tzw. obiekt Cursor. Wyświetlanych jest pierwszych 20
+dokumentów. Można na nim wykonywać metody `pretty()`, `forEach((doc){})`, `toArray()`.
+
 
 
 

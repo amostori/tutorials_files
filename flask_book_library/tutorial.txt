@@ -1,0 +1,2 @@
+# ⌥ + ⇧ multi cursor
+# pip freeze > requirements.txt
