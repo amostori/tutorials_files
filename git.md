@@ -10,4 +10,8 @@ Z poziomu jednej gałęzi przyłącza się drugą. Zwykle z 'master' przyłącza
 `git merge <branch_name>`
 
 Detached head.
-Kiedy jesteś w tym trybie, nie jesteś na żadnej gałęzi. Aby wrócić należy: `git checkout <branch_name>`.  
+Kiedy jesteś w tym trybie, nie jesteś na żadnej gałęzi. Aby wrócić należy: `git checkout <branch_name>`.
+
+### Deleting data.
+
+`git ls-files` - jakie pliki są w staging area
