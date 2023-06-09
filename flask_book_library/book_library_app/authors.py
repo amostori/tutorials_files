@@ -1,6 +1,7 @@
-from flask import jsonify
+from flask import jsonify, request
+from webargs.flaskparser import use_args
 
-from book_library_app import app
+from book_library_app import app, db
 from book_library_app.models import Author, AuthorSchema, author_schema
 
 
@@ -17,11 +18,17 @@ def get_authors():
     })
 
 
+# use_args zwaliduje dane przesłane wg author_schema i zwróci je jako dictionary
+# zmienna args to dictionary z zwalidowanymi danymi, który można wykorzystać do stworzenia obiektu Author
 @app.route('/api/v1/authors', methods=['POST'])
-def create_author():
+@use_args(author_schema)
+def create_author(args: dict):
+    author = Author(**args)
+    db.session.add(author)
+    db.session.commit()
     return jsonify({
         'success': True,
-        'data': 'New author has been created'
+        'data': author_schema.dump(author)
     }), 201
 
 

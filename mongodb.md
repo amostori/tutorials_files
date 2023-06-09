@@ -56,6 +56,12 @@ wartości większej niż 100.
 `db.<nazwa_kolekcji>.find()` - funkcja ta zwraca tzw. obiekt Cursor. Wyświetlanych jest pierwszych 20
 dokumentów. Można na nim wykonywać metody `pretty()`, `forEach((doc){})`, `toArray()`.
 
+### Projection
+
+Projekcja to dane zwrocone, ale zawierające tylko pola, które interesują użytkownika. Projekcja to drugi nawias
+klamrowy, w którym oznacza się dane do pobrania (1). Domyślnie zwracany jest też _id chyba, że oznaczymy to pole (0).
+`db.passengers.find({}, {name: 1, _id:0})`
+
 
 
 

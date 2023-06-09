@@ -21,10 +21,12 @@ def add_data():
         with open(authors_path) as file:
             # plik jest w formacie .json więc trzeba je przekonwertować na pythonowski dict
             data_json = json.load(file)
+
         for item in data_json:
             # strptime() przekształca String na obiekt DateTime
             # date() przeszktałca obiekt DateTime na obiekt Date
-            item['birth_date'] = datetime.strptime(item('birth_date'), '%d-%m-%Y').date()
+            item['birth_date'] = datetime.strptime(item['birth_date'], '%d-%m-%Y').date()
+
             author = Author(**item)
             db.session.add(author)
         db.session.commit()

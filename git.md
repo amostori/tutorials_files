@@ -14,4 +14,13 @@ Kiedy jesteś w tym trybie, nie jesteś na żadnej gałęzi. Aby wrócić należ
 
 ### Deleting data.
 
-`git ls-files` - jakie pliki są w staging area
+`git ls-files` - jakie pliki są w staging area (jakie git śledzi).
+Po usunięciu jakiegoś pliku z working directory należy `git add .` by usunąć go ze staging area.
+
+`git checkout <nazwa_pliku>` - usunięcie ostatnich zmian w pliku o podanej nazwie aż do ostatniego commitu w bieżącej
+gałęzi.
+`git checkout .` - usunięcie ostatnich zmian we wszystkich plikach aż do ostatniego commitu w bieżącej gałęzi.
+Zamiast `git checkout` można użyć komendy `git restore`.
+`git clean -dn` - usunięcie pliku dodanego po ostatnim commicie. Pojawi się info jakie pliki będą usunięte ('n' listuje
+te pliki), ('d' oznacza usunięcie untracted files).  
+`git clean -df` - dokonanie usunięcia ('f' - force).
