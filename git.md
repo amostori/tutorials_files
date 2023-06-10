@@ -12,10 +12,10 @@ Z poziomu jednej gałęzi przyłącza się drugą. Zwykle z 'master' przyłącza
 Detached head.
 Kiedy jesteś w tym trybie, nie jesteś na żadnej gałęzi. Aby wrócić należy: `git checkout <branch_name>`.
 
-### Deleting data.
+### Deleting data przed `git add`
 
-`git ls-files` - jakie pliki są w staging area (jakie git śledzi).
-Po usunięciu jakiegoś pliku z working directory należy `git add .` by usunąć go ze staging area.
+`git ls-files` - jakie pliki są w unstaging area (jakie git śledzi).
+Po usunięciu jakiegoś pliku z working directory należy wykonać `git add .` by usunąć go z unstaging area.
 
 `git checkout <nazwa_pliku>` - usunięcie ostatnich zmian w pliku o podanej nazwie aż do ostatniego commitu w bieżącej
 gałęzi.
@@ -24,3 +24,7 @@ Zamiast `git checkout` można użyć komendy `git restore`.
 `git clean -dn` - usunięcie pliku dodanego po ostatnim commicie. Pojawi się info jakie pliki będą usunięte ('n' listuje
 te pliki), ('d' oznacza usunięcie untracted files).  
 `git clean -df` - dokonanie usunięcia ('f' - force).
+
+#### Deleting zmian w pliku po komendzie `git add .`:
+
+Należy wykonać `git restore --staged <nazwa_pliku>` a następnie `git checkout <nazwa_pliku>`.

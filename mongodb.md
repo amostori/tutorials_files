@@ -62,6 +62,12 @@ Projekcja to dane zwrocone, ale zawierające tylko pola, które interesują uży
 klamrowy, w którym oznacza się dane do pobrania (1). Domyślnie zwracany jest też _id chyba, że oznaczymy to pole (0).
 `db.passengers.find({}, {name: 1, _id:0})`
 
+### Embedded documents - nested documents and arrays.
+
+`db.<nazwa_kolekcji>.updateMany({}, {$set{status: {marker: "toDelete"}}})`
+`db.<nazwa_kolekcji>.updateOne({name: "Albert Einstein"}, {$set{hobbies: ["sports", "programming"]}})`
+
+
 
 
 
