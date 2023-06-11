@@ -24,6 +24,7 @@ db.<nazwa_kolekcji>.insertMany([
 "aircraft": "Airbus A380",
 "distance": 12000,
 "intercontinental": true
+"status": {"description": "on-time"}
 },
 {
 "departureAirport": "LHR",
@@ -66,6 +67,23 @@ klamrowy, w którym oznacza się dane do pobrania (1). Domyślnie zwracany jest 
 
 `db.<nazwa_kolekcji>.updateMany({}, {$set{status: {marker: "toDelete"}}})`
 `db.<nazwa_kolekcji>.updateOne({name: "Albert Einstein"}, {$set{hobbies: ["sports", "programming"]}})`
+Aby pobrać nested documents:
+`db.<nazwa_kolekcji>.findOne({name: "Albert Einstein"}).hobbies` zwraca `["sports", "programming"]`
+`db.<nazwa_kolekcji>.find({"status.descriptions": "on-time"})` zwraca zagnieżdżony obiekt `status.descriptions`, który w
+takiej sytuacji musi być w cudzysłowiu.
+
+Przykład zagnieżdżonego obiektu 'description':
+
+```
+{
+    "distance": 12000,
+    "intercontinental": true
+    "status": {
+        "description": "on-time"
+            }
+}
+```
+
 
 
 

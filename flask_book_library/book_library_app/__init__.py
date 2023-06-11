@@ -16,6 +16,7 @@ migrate = Migrate(app, db)
 from book_library_app import authors
 from book_library_app import models
 from book_library_app import db_manage_commands
+from book_library_app import errors
 
 # a1 = models.Author(first_name="Jan", last_name="Kowalski", birth_day=date(1990, 1, 1))
 # a2 = models.Author(first_name="Ola", last_name="Kowalska", birth_day=date(1991, 1, 1))

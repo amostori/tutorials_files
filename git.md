@@ -28,3 +28,10 @@ te pliki), ('d' oznacza usunięcie untracted files).
 #### Deleting zmian w pliku po komendzie `git add .`:
 
 Należy wykonać `git restore --staged <nazwa_pliku>` a następnie `git checkout <nazwa_pliku>`.
+
+#### Deleting zmian w pliku po komendzie `git commit -m "<opis>`:
+
+`git reset --soft HEAD~1` - wymazanie ostatniego commita, ale zmiany w plikach pozostają w staging area (jaki po git
+add).
+`git reset HEAD~1` - wymazanie ostatniego commita, ale zmiany w plikach pozostają, ale nie ma ich w staging area.
+`git reset --hard HEAD~1` - wymazanie ostatniego commita, razem ze zmianami w plikach (usuwa też pliki dodane ostatnio).
