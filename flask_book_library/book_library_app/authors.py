@@ -21,7 +21,7 @@ def get_authors():
 # use_args zwaliduje dane przesłane wg author_schema i zwróci je jako dictionary
 # zmienna args to dictionary z zwalidowanymi danymi, który można wykorzystać do stworzenia obiektu Author
 @app.route('/api/v1/authors', methods=['POST'])
-@use_args(author_schema)
+@use_args(author_schema, error_status_code=400)
 def create_author(args: dict):
     author = Author(**args)
     db.session.add(author)

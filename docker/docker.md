@@ -22,3 +22,14 @@ usunięciu po zakończeniu pracy (--rm).
 
 `docker run -p 3000:80 -d --rm --name <Dowolna_nazwa> <nr_image>` - uruchomienie kontenera i nazwanie go.
 `docker build -t <nazwa>:<tag_name> .` - zbudowanie image'u z nazwą i tagiem.
+
+#### Sharing images
+
+Na stronie Docker Hub wybierz 'Create repository', nadaj nazwę dla repozytorium i wciśnij 'Create'. W terminalu, w
+folderze z projektem wykonaj komendę:
+`docker login` - trzeba podać login i hasło.
+Aby projekt został przesłany image musi mieć tą samą nazwę (pełną) co repozytorium, czyli `<nazwa_konta>/<nazwa_repo>`.
+Należy zbudować nowy i nadać mu odpowiednią nazwę lub zmienić nazwę komendą:
+`docker tag <stara_nazwa>:<stary_tag> <nowa_nazwa>`  
+Teraz wykonaj:
+`docker push <nazwa_konta>/<nazwa_repo>`  

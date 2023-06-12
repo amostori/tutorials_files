@@ -3,7 +3,7 @@ from book_library_app import app
 
 
 class ErrorResponse:
-    def __int__(self, message: str, http_status: int):
+    def __init__(self, message: str, http_status: int):
         self.payload = {
             'success': False,
             'message': message
@@ -18,4 +18,15 @@ class ErrorResponse:
 
 @app.errorhandler(404)
 def not_found_error(err):
-    pass
+    return ErrorResponse(err.description, 404).to_response()
+
+
+@app.errorhandler(400)
+def bad_request_error(err):
+    # jeśli nie ma err.data.get('messages') metoda get zwróci pusty słownik.
+    # Podobnie, jeśli .get('json') nie ma danych zwrócony zostanie pusty słownik.
+    messages = err.data.get('messages', {}).get('json', {})
+
+    # w tym przypadku obiekt err tworzony jest przez Marshmallow i dlatego do wyświetlenia komunikatu użyć trzeba
+    # innej metody
+    return ErrorResponse(messages, 400).to_response()

@@ -35,3 +35,8 @@ Należy wykonać `git restore --staged <nazwa_pliku>` a następnie `git checkout
 add).
 `git reset HEAD~1` - wymazanie ostatniego commita, ale zmiany w plikach pozostają, ale nie ma ich w staging area.
 `git reset --hard HEAD~1` - wymazanie ostatniego commita, razem ze zmianami w plikach (usuwa też pliki dodane ostatnio).
+
+#### Deleting branches
+
+`git branch -d <nazwa_gałęzi>` - usuń gałąź, która jest połączona z główną (po 'git merge').
+`git branch -D <nazwa_gałęzi>` - usuń gałąź, bez względu na to czy jest połączona z główną (po 'git merge').

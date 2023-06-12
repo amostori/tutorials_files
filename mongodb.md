@@ -84,6 +84,12 @@ Przykład zagnieżdżonego obiektu 'description':
 }
 ```
 
+Usunięcie bazy danych (db):
+`use <nazwa_db_do_usunięcia>`
+`db.dropDatabase()`
+Usunięcie pojedyńczej kolekcji:  
+`db.myCollection.drop()`
+
 
 
 
