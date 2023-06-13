@@ -40,3 +40,10 @@ add).
 
 `git branch -d <nazwa_gałęzi>` - usuń gałąź, która jest połączona z główną (po 'git merge').
 `git branch -D <nazwa_gałęzi>` - usuń gałąź, bez względu na to czy jest połączona z główną (po 'git merge').
+
+### Detached head
+
+Jeśli chcesz dodać coś w innym commicie zrób `git checkout <nr_commita>` - jesteś w trybie Detached HEAD - zrób zmiany,
+dodaj je (`git add .`) i zakomituj (`git commit -m "<opis>"`) a następnie stwórz nową gałąź `git branch <nowa_gałąź>`.  
+Teraz wróć do gałęźi 'master' (`git switch master`) i zrób merge (`git merge <nowa_gałąź>`). Możesz usunąć niepotrzebną
+gałąź (`git branch -D <nowa_gałąź>`).

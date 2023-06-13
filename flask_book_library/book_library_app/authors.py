@@ -3,6 +3,7 @@ from webargs.flaskparser import use_args
 
 from book_library_app import app, db
 from book_library_app.models import Author, AuthorSchema, author_schema
+from book_library_app.utils import validate_json_content_type
 
 
 @app.route('/api/v1/authors', methods=['GET'])
@@ -21,6 +22,7 @@ def get_authors():
 # use_args zwaliduje dane przesłane wg author_schema i zwróci je jako dictionary
 # zmienna args to dictionary z zwalidowanymi danymi, który można wykorzystać do stworzenia obiektu Author
 @app.route('/api/v1/authors', methods=['POST'])
+@validate_json_content_type
 @use_args(author_schema, error_status_code=400)
 def create_author(args: dict):
     author = Author(**args)
