@@ -47,3 +47,9 @@ Jeśli chcesz dodać coś w innym commicie zrób `git checkout <nr_commita>` - j
 dodaj je (`git add .`) i zakomituj (`git commit -m "<opis>"`) a następnie stwórz nową gałąź `git branch <nowa_gałąź>`.  
 Teraz wróć do gałęźi 'master' (`git switch master`) i zrób merge (`git merge <nowa_gałąź>`). Możesz usunąć niepotrzebną
 gałąź (`git branch -D <nowa_gałąź>`).
+
+### .gitignore
+
+`*.<file_extension>` - ignoruje wszystkie pliki o rozszerzeniu <file_extension>.
+`!<file_name>.<file_extension>` - ignoruje wszystkie pliki o rozszerzeniu <file_extension> za wyjątkiem podanego.
+

@@ -9,7 +9,7 @@ from book_library_app.utils import validate_json_content_type
 @app.route('/api/v1/authors', methods=['GET'])
 def get_authors():
     authors = Author.query.all()
-    # parametr 'many=True' informuje marshmallow, że przekazujemy listę obiektów
+    # parametr 'many = True' informuje marshmallow, że przekazujemy listę obiektów
     author_schema = AuthorSchema(many=True)
     # dump przekształca obiekty na format json
     return jsonify({
@@ -20,7 +20,7 @@ def get_authors():
 
 
 # use_args zwaliduje dane przesłane wg author_schema i zwróci je jako dictionary
-# zmienna args to dictionary z zwalidowanymi danymi, który można wykorzystać do stworzenia obiektu Author
+# Zmienna args to dictionary z zwalidowanymi danymi, które można wykorzystać do stworzenia obiektu Author
 @app.route('/api/v1/authors', methods=['POST'])
 @validate_json_content_type
 @use_args(author_schema, error_status_code=400)

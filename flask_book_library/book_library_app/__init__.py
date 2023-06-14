@@ -1,8 +1,6 @@
-from datetime import date
 from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.sql import text
 from flask_migrate import Migrate
 
 app = Flask(__name__)
