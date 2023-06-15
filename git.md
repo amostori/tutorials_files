@@ -53,3 +53,15 @@ gałąź (`git branch -D <nowa_gałąź>`).
 `*.<file_extension>` - ignoruje wszystkie pliki o rozszerzeniu <file_extension>.
 `!<file_name>.<file_extension>` - ignoruje wszystkie pliki o rozszerzeniu <file_extension> za wyjątkiem podanego.
 
+#### git stash
+
+Stash pozwala zapisywać zmiany w pamięci podręcznej i w dowolnym momencie je przywracać.
+`git stash` zapisuje najnowsze dane w pamięci podręcznej (stash) i równocześnie resetuje wszystkie zmiany do ostatniego
+komitu.
+`git stash push -m "<opis>"` jak wyżej, ale z opisem
+`git stash list` - listuje stash
+`git stash pop <index_stashu>` - przywraca zmiany ze stasha o odpowiednim indexie równocześnie usuwając stasha ze
+stasha.
+`git stash apply` - przywraca ostatnie zmiany ze stasha. Można je teraz dodać i zakomitować.
+`git stash drop <index_stashu>` - usuwa stasha o podanym indexie ze stasha.  
+`git stash clear` - usuwa wszystkie stashe ze stasha.  

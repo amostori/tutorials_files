@@ -2,6 +2,7 @@
 `docker run -p 3000:80 <nr_image>` - uruchomienie image'u jako kontenera w trybie atached
 `docker ps` - pokaz wszystkie kontenery pracujące
 `docker ps -a` - pokaz wszystkie kontenery
+`docker logs <nazwa_kontenera>` - pokaż logi, jak kontener się wysypie
 `docker start <nazwa_kontenera>` - ponowne uruchomienie już istniejącego kontenera w trybie detached  
 `docker stop <nazwa_kontenera>` - zatrzymanie istniejącego kontenera.
 `docker attacha <nazwa_kontenera>` - przejście w tryb attach-będą widoczne logi.
@@ -32,4 +33,13 @@ Aby projekt został przesłany image musi mieć tą samą nazwę (pełną) co re
 Należy zbudować nowy i nadać mu odpowiednią nazwę lub zmienić nazwę komendą:
 `docker tag <stara_nazwa>:<stary_tag> <nowa_nazwa>`  
 Teraz wykonaj:
-`docker push <nazwa_konta>/<nazwa_repo>`  
+`docker push <nazwa_konta>/<nazwa_repo>`
+
+### Volumes
+
+Są 2 rodzaje trwałej pamięci: Volumes i Bind Mounts. Są dwa rodzaje Volumes: Anonimowe i named.
+Abu utworzyć anonimowe volume do pliku Dockerfile dopisz:
+`VOLUME ["/<working_directory_path>/<path_to_persistant_directory>"]` np:
+`VOLUME ["/app/feedback"]`
+Anonimowe volume jest usuwane razem z kontenerem więc nie można używać go jako persistant data storage. Do tego służy
+Named Volume, które nie tworzy się w pliku Dockerfile tylko z pomocą komendy.

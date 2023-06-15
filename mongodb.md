@@ -90,7 +90,9 @@ Usunięcie bazy danych (db):
 Usunięcie pojedyńczej kolekcji:  
 `db.myCollection.drop()`
 
+### Data Types
 
+Text - "max"
 
 
 
