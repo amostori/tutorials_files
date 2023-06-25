@@ -45,7 +45,7 @@ add).
 
 Jeśli chcesz dodać coś w innym commicie zrób `git checkout <nr_commita>` - jesteś w trybie Detached HEAD - zrób zmiany,
 dodaj je (`git add .`) i zakomituj (`git commit -m "<opis>"`) a następnie stwórz nową gałąź `git branch <nowa_gałąź>`.  
-Teraz wróć do gałęźi 'master' (`git switch master`) i zrób merge (`git merge <nowa_gałąź>`). Możesz usunąć niepotrzebną
+Teraz wróć do gałęzi 'master' (`git switch master`) i zrób merge (`git merge <nowa_gałąź>`). Możesz usunąć niepotrzebną
 gałąź (`git branch -D <nowa_gałąź>`).
 
 ### .gitignore
@@ -64,4 +64,14 @@ komitu.
 stasha.
 `git stash apply` - przywraca ostatnie zmiany ze stasha. Można je teraz dodać i zakomitować.
 `git stash drop <index_stashu>` - usuwa stasha o podanym indexie ze stasha.  
-`git stash clear` - usuwa wszystkie stashe ze stasha.  
+`git stash clear` - usuwa wszystkie stashe ze stasha.
+
+#### git reflog
+
+`git reflog` służy do odzyskiwania skasowanych komitów i gałęzi. Komenda ta daje podgląd na wszystkie operacje wykonane.
+Przykładowo: po komendzie `git reset --hard HEAD~1` usunęliśmy ostatni komit. Teraz należy podejrzeć hash tego komita
+komendą
+`git reflog` i następnie `git reset --hard <hash komita usuniętego>` by przywrócić komita.
+Po usunięciu brancha komendą `git branch -D <nazwa_gałęzi>` również należy podejrzeć hash komita z gałęzią usuniętą i
+wykonać `git checkout <hash komita>`. Znajdziemy się w trybie 'detached'. Teraz stwórz nową gałąź o nazwie
+usuniętej `git switch -c <branch_name>`. I już.

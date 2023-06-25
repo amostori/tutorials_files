@@ -92,7 +92,18 @@ Usunięcie pojedyńczej kolekcji:
 
 ### Data Types
 
-Text - "max"
+Text - "max"  
+`db.<nazwa_kolekcji>.insertOne({<nazwa_klucza>:"<nazwa_wartości_textowej>"})`  
+bool
+`db.<nazwa_kolekcji>.insertOne({<nazwa_klucza>:true})`
+date
+`db.<nazwa_kolekcji>.insertOne({<nazwa_klucza>:new Date()})`
+Timestamp
+`db.<nazwa_kolekcji>.insertOne({<nazwa_klucza>:new Timestamp()})`
+int (w przeciwnym wypadku domyślnie liczba "1" zostanie zapisana jako float)
+`db.<nazwa_kolekcji>.insertOne({<nazwa_klucza>:NumberInt(1)})`
+`typeof db.<nazwa_kolekcji>.findOne().<nazwa_wartości>` - określanie typu danych jakiejś wartości.
+
 
 
 
