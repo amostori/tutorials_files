@@ -38,8 +38,22 @@ Teraz wykonaj:
 ### Volumes
 
 Są 2 rodzaje trwałej pamięci: Volumes i Bind Mounts. Są dwa rodzaje Volumes: Anonimowe i named.
-Abu utworzyć anonimowe volume do pliku Dockerfile dopisz:
+Aby utworzyć anonimowe volume, do pliku Dockerfile dopisz:
 `VOLUME ["/<working_directory_path>/<path_to_persistant_directory>"]` np:
 `VOLUME ["/app/feedback"]`
-Anonimowe volume jest usuwane razem z kontenerem więc nie można używać go jako persistant data storage. Do tego służy
-Named Volume, które nie tworzy się w pliku Dockerfile tylko z pomocą komendy.
+Anonimowe volume jest usuwane razem z kontenerem, więc nie można używać go jako persistant data storage. Do tego służy
+Named Volume, które nie tworzy się w pliku Dockerfile tylko z pomocą flagi '-v' przy komendzie 'docker run':  
+`docker run -p 3000:80 -d --rm --name <Dowolna_nazwa_dla_kontenera> -v <volume_name>:<volume_path> <nr_lub_name_of_image>`  
+Aby usunąć anonimowe volume (bo może się nie usunąć automatycznie) użyj komendy:
+`docker volume prune` lub `docker volume rm VOLUME_NAME`
+
+Aby można było aktualizować kod na bieżąco, należy użyć Bind Mounts. Tworzy się je tak samo, jak named volume, ale
+podaje
+się ścieżkę do projektu (skrót: `$(pwd)`) i po dwukropku, ścieżkę do kodu w kontenerze.
+`docker run -p 3000:80 -d --rm --name <Dowolna_nazwa_dla_kontenera> -v <volume_name>:<volume_path> -v $(pwd):<workdir_kontenera> <nr_lub_name_of_image>`  
+Ale uwaga, w tej sytuacji cały kod w kontenerze zostanie nadpisany przez kod z komputera gospodarza (na lokalnym
+kompie). W niektórych sytuacjach nie jest to zalecane. Gdy w pliku dockerfile wykonywana jest jakaś komenda tworząca
+jakieś foldery, najczęściej jakieś biblioteki lub pakiety zależności należy te foldery umieścić w anonimowym volume,
+dodając kolejny '-v', tym razem bez nazwy (jeśli nie ma dwukropka, nie ma nazwy dla volume) lub dodając anonimowe volume
+w pliku Dockerfile.
+`docker run -p 3000:80 -d --rm --name <Dowolna_nazwa_dla_kontenera> -v <volume_name>:<volume_path> -v $(pwd):<workdir_kontenera> -v /<workdir_kontenera>/<package_directory> <nr_lub_name_of_image>`

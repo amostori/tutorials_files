@@ -75,3 +75,15 @@ komendą
 Po usunięciu brancha komendą `git branch -D <nazwa_gałęzi>` również należy podejrzeć hash komita z gałęzią usuniętą i
 wykonać `git checkout <hash komita>`. Znajdziemy się w trybie 'detached'. Teraz stwórz nową gałąź o nazwie
 usuniętej `git switch -c <branch_name>`. I już.
+
+### Merge i rozwiązywanie konfliktów
+
+Merge może przebiegać w różnych trybach. Gdy gałąź 'master' jest niezmieniana komenda `git merge <branch_name>` (
+wykonana z poziomu 'master') powoduje
+dodanie zmian i komitów do 'master' w trybie 'fast-forward'. Nie jest tworzony żaden nowy komit.  
+Jeśli nie chcesz mieć wszystkich komitów z innej gałęzi, tylko same zmiany użyj:
+`git merge --squash <branch_name>` - spowoduje to dołączenie tylko zmian z jednej gałęzi do 'mastera', bez komitów. Po
+komendzie tej należy utworzyć komit i opisać go np jako dodanie nowego feature'a.  
+`git merge --no-ff <branch_name>` - merge bez 'fast-forward', czyli 'recursive'. Powoduje zachowanie gałęzi i utworzenie
+nowego commitu, z domyślnym komunikatem o dokonanym merge'u. 'Recursive' merge jest domyślnie ustawiony, gdy łączymy
+nową gałąź z masterem, u którego też wykonano jakieś zmiany (ma jakieś nowe komity).

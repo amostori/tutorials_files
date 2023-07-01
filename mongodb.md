@@ -89,6 +89,7 @@ Usunięcie bazy danych (db):
 `db.dropDatabase()`
 Usunięcie pojedyńczej kolekcji:  
 `db.myCollection.drop()`
+`db.stats()` - dane bazy danych
 
 ### Data Types
 
