@@ -57,3 +57,7 @@ jakieś foldery, najczęściej jakieś biblioteki lub pakiety zależności nale�
 dodając kolejny '-v', tym razem bez nazwy (jeśli nie ma dwukropka, nie ma nazwy dla volume) lub dodając anonimowe volume
 w pliku Dockerfile.
 `docker run -p 3000:80 -d --rm --name <Dowolna_nazwa_dla_kontenera> -v <volume_name>:<volume_path> -v $(pwd):<workdir_kontenera> -v /<workdir_kontenera>/<package_directory> <nr_lub_name_of_image>`
+
+`  -v /app/data ` - anonymus volume
+`  -v data:/app/data` - named volume
+`  -v /path/to/code:/app/data` - bind mount

@@ -15,6 +15,8 @@ Kiedy jesteś w tym trybie, nie jesteś na żadnej gałęzi. Aby wrócić należ
 ### Deleting data przed `git add`
 
 `git ls-files` - jakie pliki są w unstaging area (jakie git śledzi).
+` git rm --cached <path/file_name>` - usunięcie pliku ze śledzonych przez gita.
+
 Po usunięciu jakiegoś pliku z working directory należy wykonać `git add .` by usunąć go z unstaging area.
 
 `git checkout <nazwa_pliku>` - usunięcie ostatnich zmian w pliku o podanej nazwie aż do ostatniego commitu w bieżącej
@@ -87,3 +89,10 @@ komendzie tej należy utworzyć komit i opisać go np jako dodanie nowego featur
 `git merge --no-ff <branch_name>` - merge bez 'fast-forward', czyli 'recursive'. Powoduje zachowanie gałęzi i utworzenie
 nowego commitu, z domyślnym komunikatem o dokonanym merge'u. 'Recursive' merge jest domyślnie ustawiony, gdy łączymy
 nową gałąź z masterem, u którego też wykonano jakieś zmiany (ma jakieś nowe komity).
+
+### Git rebase
+
+Rebase przepisuje historię commitów. Jakaś gałąź, w której powstały komity, po komendzie `git rebase` zmienia podstawę,
+na której się opiera z mastera, który też został zaktualizowany w międzyczasie. Nie jest to zalecane postępowanie.
+
+#### merge conflicts  
