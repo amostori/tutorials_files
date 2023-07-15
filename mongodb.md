@@ -105,6 +105,20 @@ int (w przeciwnym wypadku domyślnie liczba "1" zostanie zapisana jako float)
 `db.<nazwa_kolekcji>.insertOne({<nazwa_klucza>:NumberInt(1)})`
 `typeof db.<nazwa_kolekcji>.findOne().<nazwa_wartości>` - określanie typu danych jakiejś wartości.
 
+#### Relations
+
+W przypadku relacji one-to-one najlepiej stosować dokumenty zagnieżdżone, jak tu:
+
+```
+{
+    "distance": 12000,
+    "intercontinental": true
+    "status": {
+        "description": "on-time"
+            }
+}
+```
+
 
 
 
