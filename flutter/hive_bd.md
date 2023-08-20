@@ -4,7 +4,6 @@ Teraz w funkcji 'main' aplikacji zainicjuj Hive:
 ```
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setServices();
   Directory directory = await getApplicationDocumentsDirectory();
   Hive.init(directory.path);
   runApp(const MyApp());
@@ -31,4 +30,4 @@ Update danych:
 Kasowanie danych:  
 `box.delete('<key_name>');` lub podając index:  
 `box.deleteAt(<nr_indexu>);`  
-
+    
